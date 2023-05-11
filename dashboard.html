@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="file" id="input1">
+    <img src="https://res.cloudinary.com/woleogunba/image/upload/v1683810196/ny9e6uebznh1noondbd5.jpg" alt="">
+</body>
+<script>
+    let input1 = document.getElementById("input1")
+    let file
+
+    const pickFile = (e) => {
+        const myFile = e.target.files[0]
+        const reader = new FileReader()
+        reader.readAsDataURL(myFile)
+        reader.onload = () => {
+            const result = reader.result
+            file = result
+            console.log(file)
+        }
+    }
+
+    input1.addEventListener("change", pickFile)
+</script>
+</html>
